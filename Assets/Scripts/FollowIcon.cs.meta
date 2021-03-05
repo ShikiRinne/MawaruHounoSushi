@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: fef5240ee8f954641b04722637e3dcef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Icon_Sara: {fileID: 3494155471217099187, guid: 5b800718c4493c444b0d532ff8e2a2b8,
+      type: 3}
+  - Icon_Syari: {fileID: 3657239295996313791, guid: f5d29a06cd48a5b4693e05c99d1bc354,
+      type: 3}
+  - Icon_Nori: {fileID: 8113357203295335372, guid: d804fe3747a59264790dfc066581c7a8,
+      type: 3}
+  - Icon_Maguro: {fileID: 1026171478595714299, guid: 5d5251f90e8483b45af7758bf1b95fcf,
+      type: 3}
+  - Icon_Salmon: {fileID: 6480229551840930195, guid: 686f1791e4fc0654b81d8629d73de0e7,
+      type: 3}
+  - Icon_Ebi: {fileID: 4525149213192601148, guid: 40a632c1b775e85439a3d80f56eb7c64,
+      type: 3}
+  - Icon_Uni: {fileID: 2232505002666256715, guid: 47d3b365178c6d343a4d6b102417d11e,
+      type: 3}
+  - Icon_Ikura: {fileID: 2882012191851973661, guid: af69ff5228bfccf4aa040649e9929428,
+      type: 3}
+  - Sushi_Sara: {fileID: 5959052090189869916, guid: f558261e0d2c1044881ce6fe4cd10072,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
