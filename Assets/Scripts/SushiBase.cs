@@ -34,7 +34,6 @@ public class SushiBase : MonoBehaviour
     private AudioClip SEClip_RoolNori;
 
     private bool isSyari = false;
-    private bool isGunkan = false;
 
     private bool isOnLane = false;
     private bool isFrowSushi = false;
@@ -58,7 +57,7 @@ public class SushiBase : MonoBehaviour
     public void PutFoods()
     {
         //シャリがなければシャリを乗せる
-        if (!isSyari)
+        if (!isSyari && OBM.PassSushiType == ObjectManager.SushiType.Syari)
         {
             foreach (Transform syari in gameObject.transform)
             {
@@ -68,93 +67,9 @@ public class SushiBase : MonoBehaviour
                     SESource_Sara.PlayOneShot(SEClip_PutSyari);
                 }
             }
-            isSyari = true;
-        }
-        //シャリがあって軍艦でなければそれぞれのネタを乗せるもしくは海苔を巻く
-        else if (!isGunkan)
-        {
-            switch (OBM.PassSushiType)
-            {
-                case ObjectManager.SushiType.Maguro:
-                    MakeSyariSushi("sushi_maguro");
-                    break;
-                case ObjectManager.SushiType.Salmon:
-                    MakeSyariSushi("sushi_salmon");
-                    break;
-                case ObjectManager.SushiType.Ebi:
-                    MakeSyariSushi("sushi_ebi");
-                    break;
-                case ObjectManager.SushiType.Nori:
-                    MakeSyariSushi("sushi_gunkan");
-                    isGunkan = true;
-                    break;
-                default:
-                    break;
-            }
-        }
-        //軍艦ならそれぞれのネタを乗せる
-        else
-        {
-            switch (OBM.PassSushiType)
-            {
-                case ObjectManager.SushiType.Ikura:
-                    MakeGunkanSushi("sushi_ikura");
-                    break;
-                case ObjectManager.SushiType.Uni:
-                    MakeGunkanSushi("sushi_uni");
-                    break;
-                default:
-                    break;
-            }
         }
     }
-    /// <summary>
-    /// ベースがシャリの寿司を完成させる
-    /// </summary>
-    /// <param name="sushiname"></param>
-    private void MakeSyariSushi(string sushiname)
-    {
-        foreach (Transform sushi in gameObject.transform)
-        {
-            if (sushi.name == sushiname)
-            {
-                sushi.gameObject.SetActive(true);
-                //海苔だけ別のSEを再生させる
-                if (sushiname == "sushi_gunkan")
-                {
-                    SESource_Sara.PlayOneShot(SEClip_RoolNori);
-                }
-                else
-                {
-                    SESource_Sara.PlayOneShot(SEClip_NetaOnSyari);
-                }
-            }
-            if (sushi.CompareTag("Syari"))
-            {
-                sushi.gameObject.SetActive(false);
-            }
-        }
-    }
-    /// <summary>
-    /// ベースが軍艦の寿司を完成させる
-    /// </summary>
-    /// <param name="gunkanname"></param>
-    private void MakeGunkanSushi(string gunkanname)
-    {
-        foreach (Transform gunkan in gameObject.transform)
-        {
-            if (gunkan.name == gunkanname)
-            {
-                gunkan.gameObject.SetActive(true);
-                SESource_Sara.PlayOneShot(SEClip_NetaOnGunkan);
-            }
-            if (gunkan.CompareTag("Gunkan"))
-            {
-                gunkan.gameObject.SetActive(false);
-            }
-        }
-    }
-
+    
     /// <summary>
     /// 寿司を動かす
     /// </summary>
@@ -193,7 +108,6 @@ public class SushiBase : MonoBehaviour
         if (isOnLane)
         {
             isSyari = false;
-            isGunkan = false;
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, 0.6f, -1f);
             SESource_Sara.PlayOneShot(SEClip_PutLane);
             CheckFlowSushiType(gameObject);

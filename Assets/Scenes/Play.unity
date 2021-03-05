@@ -4102,7 +4102,7 @@ MonoBehaviour:
   Text_ebicount: {fileID: 987242435}
   Text_ikuracount: {fileID: 1301270094}
   Text_unicount: {fileID: 1443494128}
-  Text_belivecount: {fileID: 920782567}
+  Text_deliveredcount: {fileID: 920782567}
   SESource_Start: {fileID: 2134610525}
   SESource_End: {fileID: 2134610524}
   SEClip_Start: {fileID: 8300000, guid: cffe4cd9418b3484ba15ed5d7daa6d26, type: 3}

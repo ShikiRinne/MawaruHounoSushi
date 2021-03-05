@@ -7,6 +7,15 @@ using UnityEngine;
 /// </summary>
 public class ObjectManager : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource SESource_MakeSushi;
+    [SerializeField]
+    private AudioClip SEClip_MakeSyari;
+    [SerializeField]
+    private AudioClip SEClip_MakeGunkan;
+    [SerializeField]
+    private AudioClip SEClip_RoolNori;
+
     public bool IsSpace1 { get; set; } = false;
     public bool IsSpace2 { get; set; } = false;
     public bool IsSpace3 { get; set; } = false;
@@ -25,4 +34,18 @@ public class ObjectManager : MonoBehaviour
     }
     public SushiType PassSushiType { get; set; }
 
+    public void PlaySESyari()
+    {
+        SESource_MakeSushi.PlayOneShot(SEClip_MakeSyari);
+    }
+
+    public void PlaySEGunkan()
+    {
+        SESource_MakeSushi.PlayOneShot(SEClip_MakeGunkan);
+    }
+
+    public void PlaySERoolNori()
+    {
+        SESource_MakeSushi.PlayOneShot(SEClip_RoolNori);
+    }
 }
